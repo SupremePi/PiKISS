@@ -39,11 +39,6 @@ install() {
     IS_RASPBERRYPI=$(grep </proc/cpuinfo 'BCM2708\|BCM2709\|BCM2835\|BCM2711')
     cd "$INSTALL_DIR" || exit 1
 
-    if [[ -z $IS_RASPBERRYPI ]]; then
-        echo "Sorry. PiKISS is only available for Raspberry Pi boards."
-        exit
-    fi
-
     echo -e "\nPiKISS\n======\n\nInstalling at ${INSTALL_DIR}/piKiss. Please wait...\n"
     check_and_install_dialog
     git clone -b master "$PIKISS_URL" piKiss && cd "$_" || exit 1
